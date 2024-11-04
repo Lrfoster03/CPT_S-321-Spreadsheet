@@ -210,9 +210,27 @@ namespace Spreadsheet_Logan_Foster
                     this.UpdateStacks();
                 }
             }
+            else if (e.Control && e.KeyCode == Keys.S)
+            {
+                this.SaveFile();
+            }
+            else if (e.Control && e.KeyCode == Keys.O)
+            {
+                this.LoadFile();
+            }
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.SaveFile();
+        }
+
+        private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LoadFile();
+        }
+
+        private void SaveFile()
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "XML File|*.xml";
@@ -230,7 +248,7 @@ namespace Spreadsheet_Logan_Foster
             });
         }
 
-        private async void LoadToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void LoadFile()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "XML File|*.xml";
